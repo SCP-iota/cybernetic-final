@@ -38,7 +38,7 @@ public class Main {
 
         // Power Level sorting
         System.out.println("\nSorted by Power Level (Quicksort):");
-        ArrayList<CyberneticOrgan> powerSorted = inventory.sortByPowerLevel();
+        ArrayList<CyberneticOrgan> powerSorted = inventory.getOrgansSortedByPowerLevel();
         printTopFiveOrgans(powerSorted, organ ->
                 String.format("ID: %s, Power Level: %d (%s)",
                         organ.getId(),
@@ -47,7 +47,7 @@ public class Main {
 
         // Manufacture Date sorting
         System.out.println("\nSorted by Manufacture Date (Mergesort):");
-        ArrayList<CyberneticOrgan> dateSorted = inventory.sortByManufactureDate();
+        ArrayList<CyberneticOrgan> dateSorted = inventory.getOrgansSortedByManufacturerDate();
         printTopFiveOrgans(dateSorted, organ ->
                 String.format("ID: %s, Date: %s (%s)",
                         organ.getId(),
@@ -56,7 +56,7 @@ public class Main {
 
         // Compatibility Score sorting
         System.out.println("\nSorted by Compatibility Score (Bubblesort):");
-        ArrayList<CyberneticOrgan> compatibilitySorted = inventory.sortByCompatibilityScore();
+        ArrayList<CyberneticOrgan> compatibilitySorted = inventory.getOrgansSortedByCompatibilityScore();
         printTopFiveOrgans(compatibilitySorted, organ ->
                 String.format("ID: %s, Compatibility: %.2f (%s)",
                         organ.getId(),

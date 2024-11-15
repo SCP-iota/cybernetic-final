@@ -1,39 +1,32 @@
 package com.cybernetic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SystemOperationsLog {
-    private List<SystemOperation> stack = new ArrayList<>();
+    private SystemOperation[] stack;
+    private int head = 0;
 
-    public SystemOperationsLog(int size) { }
+    public SystemOperationsLog(int size) {
+        stack = new SystemOperation[size];
+    }
 
     public void pushOperation(SystemOperation op) {
-        stack.add(op);
+        stack[head] = op;
+        head++;
     }
 
     public SystemOperation popLastOperation() {
-        return stack.removeLast();
+        head--;
+        return stack[head + 1];
     }
 
     public SystemOperation peekLastOperation() {
-        return stack.getLast();
+        return stack[head];
     }
 
     public List<SystemOperation> getRecentOperations(int length) {
-        var buf = new ArrayList<SystemOperation>();
-
-        for(int i = 0; i < length; i++) {
-            if(stack.isEmpty())
-                break;
-
-            buf.add(stack.removeLast());
-        }
-
-        for(var op : buf) {
-            stack.add(op);
-        }
-
-        return buf;
+        return new ArrayList<SystemOperation>(Arrays.asList(Arrays.copyOfRange(stack, length, stack.length)));
     }
 }

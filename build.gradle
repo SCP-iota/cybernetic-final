@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'application'
 }
 
 group = 'org.example'
@@ -21,4 +21,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+application {
+	mainClass = 'com.cybernetic.Main'
 }

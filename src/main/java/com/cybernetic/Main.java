@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Initialize all components
-        TransplantHistory transplantHistory = new TransplantHistory();
+        TransplantRecord transplantHistory = new TransplantRecord();
         SystemOperationsLog operationsLog = new SystemOperationsLog(100);
         EmergencyWaitlist emergencyWaitlist = new EmergencyWaitlist();
 

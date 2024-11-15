@@ -5,20 +5,20 @@ import java.util.List;
 import java.util.Stack;
 
 public class SystemOperationsLog {
-    private Stack<SystemOperation> stack = new Stack<>();
+    private List<SystemOperation> stack = new ArrayList<>();
 
     public SystemOperationsLog(int size) { }
 
     public void pushOperation(SystemOperation op) {
-        stack.push(op);
+        stack.add(op);
     }
 
     public SystemOperation popLastOperation() {
-        return stack.pop();
+        return stack.removeLast();
     }
 
     public SystemOperation peekLastOperation() {
-        return stack.peek();
+        return stack.getLast();
     }
 
     public List<SystemOperation> getRecentOperations(int length) {
@@ -27,12 +27,12 @@ public class SystemOperationsLog {
         for(int i = 0; i < length; i++) {
             if(stack.isEmpty())
                 break;
-                
-            buf.add(stack.pop());
+
+            buf.add(stack.removeLast());
         }
 
         for(var op : buf) {
-            stack.push(op);
+            stack.add(op);
         }
 
         return buf;
